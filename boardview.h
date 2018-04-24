@@ -50,6 +50,10 @@ public:
     virtual void moveCharacterTo(const int& handle, const int& col, const int& row) =0;
     virtual void moveSelection() =0;
     virtual void show() =0;
+    const int& getHandle(const int& col, const int& row) const
+    {
+        return handles[col][row];
+    }
     void /*std::vector<int> &&*/ select();
 };
 
