@@ -14,12 +14,24 @@ static bool operator != (const SDL_Point& a, const SDL_Point& b)
 void BoardView::select()
 {
     show();
+    undo_request = false;
     do
     {
         SDL_WaitEvent(&event);
         if(event.type == SDL_QUIT)
         {
             exit(0);
+        }
+        if(event.type == SDL_KEYDOWN)
+        {
+            switch(event.key.keysym.sym) // ToDo
+            {
+                case SDLK_LEFT:
+                    undo_request = true;
+                    return;
+                default:
+                    ;
+            }
         }
         SDL_GetMouseState(&mouse.x,&mouse.y);
         if(convertToTilePosition(mouse.x,mouse.y) == false)
