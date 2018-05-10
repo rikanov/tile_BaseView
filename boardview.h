@@ -45,12 +45,18 @@ protected:
 public:
     std::vector<SDL_Point> marked;
     std::vector<SDL_Point> selected;
+    
+    bool exit_request;
     bool undo_request;
   
     virtual int createPieces(const Ally & A, const int& col, const int& row, const char*) =0;
     virtual int moveSelection(const int& revive = 0) =0;
     virtual void moveCharacterTo(const int& handle, const int& col, const int& row) =0;
     virtual void show() =0;
+    virtual ~BoardView()
+    {
+        
+    }
     const int& getHandle(const int& col, const int& row) const
     {
         return handles[col][row];

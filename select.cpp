@@ -14,13 +14,15 @@ static bool operator != (const SDL_Point& a, const SDL_Point& b)
 void BoardView::select()
 {
     show();
+    exit_request = false;
     undo_request = false;
     do
     {
         SDL_WaitEvent(&event);
         if(event.type == SDL_QUIT)
         {
-            exit(0);
+            exit_request = true;
+            return;
         }
         if(event.type == SDL_KEYDOWN)
         {
@@ -28,6 +30,9 @@ void BoardView::select()
             {
                 case SDLK_LEFT:
                     undo_request = true;
+                    return;
+                case SDLK_ESCAPE:
+                    exit_request = true;
                     return;
                 default:
                     ;
