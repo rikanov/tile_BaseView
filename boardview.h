@@ -1,6 +1,5 @@
 /*
- * <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) 2018  <copyright holder> <email>
+ * Copyright (C) 2018  Robert Ikanov, robert.ikanov@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,6 +47,7 @@ public:
     
     bool exit_request;
     bool undo_request;
+    bool redo_request;
   
     virtual int createPieces(const Ally & A, const int& col, const int& row, const char*) =0;
     virtual int moveSelection(const int& revive = 0) =0;
