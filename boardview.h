@@ -20,7 +20,7 @@
 #ifndef BOARDVIEW_H
 #define BOARDVIEW_H
 #include<vector>
-#include"../Engine/enums.h"
+#include"../GameEngine/enums.h"
 #include"../View2D/sdl_dep.h"
 class BoardView
 {
